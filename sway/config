@@ -116,7 +116,7 @@ exec {
 exec_always {
     # /usr/lib/polkit-kde-authentication-agent-1 &
     #--no-startup-id wlsunset -T 9000 -t 4000 -S 16:30 -s 6:30
-    autotiling
+    autotiling-rs
     #gsettings set org.gnome.desktop.interface gtk-theme "Plata-Noir-Compact" 
     #gsettings set org.gnome.desktop.interface gtk-theme "Adwaita" 
     #gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
