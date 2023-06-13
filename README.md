@@ -1,6 +1,8 @@
 # sway-config
 A sane sway config to get you started without any hassle. Perfect for building up.
 
+![](showcase.png)
+
 ## Official repository
 ```
 sudo pacman -S --asdeps wl-clipboard wldash wofi mako playerctl wmname autotiling-rs swayidle swaylock swaybg foot bemenu-wayland brightnessctl pactl

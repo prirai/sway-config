@@ -1,0 +1,140 @@
+##################################################
+#####          Config by Priyanshu           #####
+##################################################
+
+# Run pure wayland
+#xwayland disable
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set {
+    $wallpaper ../jv408avutto91.jpg
+    $mod Mod4
+    $term foot
+    # $menu wofi -S drun
+    $menu bemenu-run -b -H 50 -M 50 -W 1 -p 🔍 --hp 10 --hb "#002c50" --hf "#ffffff" --bdr "#550b49" -B 2 --fn "Iosevka Fixed 16"
+    $files nautilus
+    #$menu exec /home/$(whoami)/.config/sway/scripts/sway-dmenu
+    #$menu krunner
+    $dash wldash
+    $emoji-sel wofimoji
+    $clipboard copyq show
+    $nm networkmanager_dmenu
+    $my_cursor phinger-cursors
+    $my_cursor_size 28
+}
+
+seat seat0 xcursor_theme $my_cursor $my_cursor_size
+
+bindsym {
+    $mod+Return exec $term
+    $mod+Shift+q kill
+    $mod+d exec $menu
+    $mod+e exec $files
+    $mod+Shift+d exec $dash
+    $mod+n exec $nm
+    $mod+Alt+c exec $clipboard
+    $mod+period exec $emoji-sel
+    $mod+Shift+c reload
+
+    #fzfify
+    #$mod+Shift+w exec     '/home/$(whoami)/.config/sway/scripts/sway-workspace-switcher'
+    #$mod+m exec     '/home/$(whoami)/.config/sway/scripts/sway-marks-switcher'
+    #Alt+Tab exec     '/home/$(whoami)/.config/sway/scripts/sway-tree-switcher'
+    #$mod+o exec     '/home/$(whoami)/.config/sway/scripts/sway-workspace-move'
+    #$mod+Shift+r exec     '/home/$(whoami)/.config/sway/scripts/sway-rename'
+    #$mod+Shift+n exec     '/home/$(whoami)/.config/sway/scripts/sway-new-workspace'
+    #Alt+space exec     '/home/$(whoami)/.config/sway/scripts/sway-file-search'
+
+    #swayr
+    Alt+Tab exec env RUST_BACKTRACE=1 \
+    swayr switch-window >> /tmp/swayr.log 2>&1
+
+    #$mod+Delete exec env RUST_BACKTRACE=1 swayr quit-window >> /tmp/swayr.log 2>&1
+
+    #$mod+Tab exec env RUST_BACKTRACE=1 \
+    #swayr switch-to-urgent-or-lru-window >> /tmp/swayr.log 2>&1
+
+    $mod+Tab exec env RUST_BACKTRACE=1 \
+    swayr next-window all-workspaces >> /tmp/swayr.log 2>&2
+
+    #$mod+Prior exec env RUST_BACKTRACE=1 \
+    #swayr prev-window all-workspaces >> /tmp/swayr.log 2>&2
+
+    $mod+Shift+w exec env RUST_BACKTRACE=1 \
+    swayr switch-workspace-or-window >> /tmp/swayr.log 2>&1
+
+    $mod+c exec env RUST_BACKTRACE=1 \
+    swayr execute-swaymsg-command >> /tmp/swayr.log 2>&1
+
+    $mod+Shift+r exec env RUST_BACKTRACE=1 \
+    swayr execute-swayr-command >> /tmp/swayr.log 2>&1
+
+    # Switch to workspace
+    $mod+1 workspace number 1
+    $mod+2 workspace number 2
+    $mod+3 workspace number 3
+    $mod+4 workspace number 4
+    $mod+5 workspace number 5
+    $mod+6 workspace number 6
+    $mod+7 workspace number 7
+    $mod+8 workspace number 8
+    $mod+9 workspace number 9
+    $mod+0 workspace number 10
+
+    # Move focused container to workspace
+    $mod+Shift+1 move container to workspace number 1
+    $mod+Shift+2 move container to workspace number 2
+    $mod+Shift+3 move container to workspace number 3
+    $mod+Shift+4 move container to workspace number 4
+    $mod+Shift+5 move container to workspace number 5
+    $mod+Shift+6 move container to workspace number 6
+    $mod+Shift+7 move container to workspace number 7
+    $mod+Shift+8 move container to workspace number 8
+    $mod+Shift+9 move container to workspace number 9
+    $mod+Shift+0 move container to workspace number 10
+
+}
+
+exec {
+    '/home/$(whoami)/.config/sway/scripts/xdg-wlr'
+    wl-paste -t text --watch clipman store --no-persist
+    mako --config /home/me/.config/mako/config
+
+    polkit-dumb-agent
+    #lxqt-policykit-agent
+    #polkit-kde-agent
+    #eval $(gnome-keyring-daemon --start)
+    playerctld daemon
+    wmname LG3D
+    #yambar
+    #copyq
+    env RUST_BACKTRACE=1 RUST_LOG=swayr=debug swayrd > /tmp/swayrd.log 2>&1
+}
+
+exec_always {
+    # /usr/lib/polkit-kde-authentication-agent-1 &
+    #--no-startup-id wlsunset -T 9000 -t 4000 -S 16:30 -s 6:30
+    autotiling
+    #gsettings set org.gnome.desktop.interface gtk-theme "Plata-Noir-Compact" 
+    #gsettings set org.gnome.desktop.interface gtk-theme "Adwaita" 
+    #gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
+    "systemctl --user import-environment; systemctl --user start sway-session.target"
+    # gsettings set org.gnome.desktop.interface cursor-theme $my_cursor
+    gsettings set org.gnome.desktop.interface cursor-size $my_cursor_size
+}
+
+
+floating_modifier $mod normal
+
+include {
+    /home/me/.config/sway/config.d/*.conf
+    scripts/*.conf
+}
+
+# User specific
+exec {
+	#rclone mount iiserbgdrive:/ /home/me/cloud/gdriveiiserb --daemon
+	#rclone mount crypt:/ /home/me/cloud/crypt --daemon
+}
