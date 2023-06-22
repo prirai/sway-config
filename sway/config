@@ -10,22 +10,21 @@
 # Logo key. Use Mod1 for Alt.
 set {
     $wallpaper ../jv408avutto91.jpg
+    $lock_bg /home/me/.config/sway/lock.jpg
     $mod Mod4
     $term foot
-    # $menu wofi -S drun
-    $menu bemenu-run -b -H 50 -M 50 -W 1 -p 🔍 --hp 10 --hb "#002c50" --hf "#ffffff" --bdr "#550b49" -B 2 --fn "Iosevka Fixed 16"
-    $files nautilus
+    $menu wofi -S drun
+#    $menu bemenu-run -b -H 50 -M 50 -W 1 -p 🔍 --hp 10 --hb "#002c50" --hf "#ffffff" --bdr "#550b49" -B 2 --fn "Iosevka Fixed 16"
+    $files dolphin
     #$menu exec /home/$(whoami)/.config/sway/scripts/sway-dmenu
     #$menu krunner
     $dash wldash
     $emoji-sel wofimoji
     $clipboard copyq show
     $nm networkmanager_dmenu
-    $my_cursor phinger-cursors
-    $my_cursor_size 28
+    #$my_cursor phinger-cursors
+    #$my_cursor_size 15
 }
-
-seat seat0 xcursor_theme $my_cursor $my_cursor_size
 
 bindsym {
     $mod+Return exec $term
@@ -71,30 +70,6 @@ bindsym {
     $mod+Shift+r exec env RUST_BACKTRACE=1 \
     swayr execute-swayr-command >> /tmp/swayr.log 2>&1
 
-    # Switch to workspace
-    $mod+1 workspace number 1
-    $mod+2 workspace number 2
-    $mod+3 workspace number 3
-    $mod+4 workspace number 4
-    $mod+5 workspace number 5
-    $mod+6 workspace number 6
-    $mod+7 workspace number 7
-    $mod+8 workspace number 8
-    $mod+9 workspace number 9
-    $mod+0 workspace number 10
-
-    # Move focused container to workspace
-    $mod+Shift+1 move container to workspace number 1
-    $mod+Shift+2 move container to workspace number 2
-    $mod+Shift+3 move container to workspace number 3
-    $mod+Shift+4 move container to workspace number 4
-    $mod+Shift+5 move container to workspace number 5
-    $mod+Shift+6 move container to workspace number 6
-    $mod+Shift+7 move container to workspace number 7
-    $mod+Shift+8 move container to workspace number 8
-    $mod+Shift+9 move container to workspace number 9
-    $mod+Shift+0 move container to workspace number 10
-
 }
 
 exec {
@@ -122,7 +97,7 @@ exec_always {
     #gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
     "systemctl --user import-environment; systemctl --user start sway-session.target"
     # gsettings set org.gnome.desktop.interface cursor-theme $my_cursor
-    gsettings set org.gnome.desktop.interface cursor-size $my_cursor_size
+    # gsettings set org.gnome.desktop.interface cursor-size $my_cursor_size
 }
 
 
