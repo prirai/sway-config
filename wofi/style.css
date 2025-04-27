@@ -1,50 +1,57 @@
 window {
-margin: 0px;
-border-radius: 12px;
-border: 1px solid #bd93f9;
-/* background-color: #282a36; */
-background-color: black;
+    margin: 0px;
+    border: 2px solid #89b4fa; /* Waybar blue accent */
+    border-radius: 12px;
+    background-color: #1e1e2e; /* Waybar base color */
+    box-shadow: 0 0 30px 10px rgba(0,0,0,0.3);
 }
 
 #input {
-margin: 5px;
-border: 2px solid #bd93f9;
-border-radius: 12px;
-color: #f8f8f2;
-background-color: #44475a;
+margin: 12px;
+padding: 12px;
+border: 2px solid #313244; /* Waybar surface color */
+border-radius: 8px;
+color: #cdd6f4; /* Waybar text color */
+background-color: #313244;
+font-size: 16px;
 }
 
 #inner-box {
-margin: 5px;
-border: none;
-border-radius: 12px;
-/* background-color: #282a36; */
-background-color: black;
+margin: 12px;
+border-radius: 8px;
+background-color: #1e1e2e;
 }
 
-#outer-box {
-margin: 5px;
-border: none;
-background-color: #000000;
+#entry {
+padding: 8px 12px;
+border-radius: 8px;
+transition: all 0.2s ease;
 }
 
-#scroll {
-margin: 0px;
-border: none;
+#entry:selected {
+background-color: alpha(#89b4fa, 0.2); /* Transparent blue */
+border: 1px solid #89b4fa;
 }
 
 #text {
-margin: 5px;
-border: none;
-color: #f8f8f2;
-} 
-
-#entry:selected {
-background-color: #44475a;
-border-radius: 12px;
+color: #cdd6f4;
+margin-left: 8px;
+font-size: 14px;
 }
 
-#entry-selected > div {
-    background-color: white;
+#entry image {
+margin-right: 12px;
+min-width: 24px;
+min-height: 24px;
 }
 
+.arrow {
+    color: #89b4fa;           /* Waybar blue accent */
+    font-size: 18px;
+    margin-left: 8px;
+    margin-right: 0;
+    vertical-align: middle;
+    font-weight: bold;
+    /* Optional: add a subtle glow */
+    text-shadow: 0 0 4px #89b4fa88;
+}

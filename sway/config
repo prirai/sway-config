@@ -1,65 +1,45 @@
-##################################################
-#####          Config by Priyanshu           #####
-##################################################
+font pango:dank mono regular 12
+seat seat0 xcursor_theme Bibata-Modern-Ice 24
 
-# Run pure wayland
-#xwayland disable
+bar {
+	swaybar_command waybar
+	position top
+    hidden_state hide
+    mode hide
+    modifier Mod4
+}
 
-### Variables
-#
-# Logo key. Use Mod1 for Alt.
 set {
-    $wallpaper ../jv408avutto91.jpg
-    $lock_bg /home/me/.config/sway/lock.jpg
+    $wallpaper ../smjx0oc21w0e1.png
+    $lock_bg $HOME/.config/sway/lock.jpg
     $mod Mod4
-    $term foot
-    $menu wofi -S drun
-#    $menu bemenu-run -b -H 50 -M 50 -W 1 -p 🔍 --hp 10 --hb "#002c50" --hf "#ffffff" --bdr "#550b49" -B 2 --fn "Iosevka Fixed 16"
+    $term alacritty
     $files dolphin
-    #$menu exec /home/$(whoami)/.config/sway/scripts/sway-dmenu
-    #$menu krunner
     $dash wldash
     $emoji-sel wofimoji
     $clipboard copyq show
+    $menu rofi -show combi
     $nm networkmanager_dmenu
-    #$my_cursor phinger-cursors
-    #$my_cursor_size 15
 }
 
 bindsym {
     $mod+Return exec $term
-    $mod+Shift+q kill
     $mod+d exec $menu
     $mod+e exec $files
-    $mod+Shift+d exec $dash
     $mod+n exec $nm
-    $mod+Alt+c exec $clipboard
+    $mod+v exec $clipboard
+    Mod1+space exec alacritty --class "floatterm" -e bash -c 'fd . ~ -0 | fzf --read0 | xargs -r -0 xdg-open'
     $mod+period exec $emoji-sel
+    $mod+Shift+d exec $dash
+    # $mod+Shift+e exec $HOME/.config/sway/exit_sway.sh
+    $mod+Shift+q kill
     $mod+Shift+c reload
 
-    #fzfify
-    #$mod+Shift+w exec     '/home/$(whoami)/.config/sway/scripts/sway-workspace-switcher'
-    #$mod+m exec     '/home/$(whoami)/.config/sway/scripts/sway-marks-switcher'
-    #Alt+Tab exec     '/home/$(whoami)/.config/sway/scripts/sway-tree-switcher'
-    #$mod+o exec     '/home/$(whoami)/.config/sway/scripts/sway-workspace-move'
-    #$mod+Shift+r exec     '/home/$(whoami)/.config/sway/scripts/sway-rename'
-    #$mod+Shift+n exec     '/home/$(whoami)/.config/sway/scripts/sway-new-workspace'
-    #Alt+space exec     '/home/$(whoami)/.config/sway/scripts/sway-file-search'
-
-    #swayr
     Alt+Tab exec env RUST_BACKTRACE=1 \
     swayr switch-window >> /tmp/swayr.log 2>&1
 
-    #$mod+Delete exec env RUST_BACKTRACE=1 swayr quit-window >> /tmp/swayr.log 2>&1
-
-    #$mod+Tab exec env RUST_BACKTRACE=1 \
-    #swayr switch-to-urgent-or-lru-window >> /tmp/swayr.log 2>&1
-
     $mod+Tab exec env RUST_BACKTRACE=1 \
     swayr next-window all-workspaces >> /tmp/swayr.log 2>&2
-
-    #$mod+Prior exec env RUST_BACKTRACE=1 \
-    #swayr prev-window all-workspaces >> /tmp/swayr.log 2>&2
 
     $mod+Shift+w exec env RUST_BACKTRACE=1 \
     swayr switch-workspace-or-window >> /tmp/swayr.log 2>&1
@@ -69,47 +49,35 @@ bindsym {
 
     $mod+Shift+r exec env RUST_BACKTRACE=1 \
     swayr execute-swayr-command >> /tmp/swayr.log 2>&1
-
 }
+
+floating_modifier $mod normal
 
 exec {
     '/home/$(whoami)/.config/sway/scripts/xdg-wlr'
     wl-paste -t text --watch clipman store --no-persist
-    mako --config /home/me/.config/mako/config
+    mako --config $HOME/.config/mako/config
 
+	
+	kwalletd5
+	swayosd-server
     polkit-dumb-agent
-    #lxqt-policykit-agent
-    #polkit-kde-agent
-    #eval $(gnome-keyring-daemon --start)
     playerctld daemon
     wmname LG3D
-    #yambar
-    #copyq
+    copyq
     env RUST_BACKTRACE=1 RUST_LOG=swayr=debug swayrd > /tmp/swayrd.log 2>&1
+	# env XDG_MENU_PREFIX=arch- kbuildsycoca6
 }
 
 exec_always {
-    # /usr/lib/polkit-kde-authentication-agent-1 &
-    #--no-startup-id wlsunset -T 9000 -t 4000 -S 16:30 -s 6:30
     autotiling-rs
-    #gsettings set org.gnome.desktop.interface gtk-theme "Plata-Noir-Compact" 
-    #gsettings set org.gnome.desktop.interface gtk-theme "Adwaita" 
-    #gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
-    "systemctl --user import-environment; systemctl --user start sway-session.target"
-    # gsettings set org.gnome.desktop.interface cursor-theme $my_cursor
-    # gsettings set org.gnome.desktop.interface cursor-size $my_cursor_size
 }
 
-
-floating_modifier $mod normal
+exec --no-startup-id /usr/lib/pam_kwallet_init
 
 include {
-    /home/me/.config/sway/config.d/*.conf
+    config.d/*.conf
     scripts/*.conf
 }
 
-# User specific
-exec {
-	#rclone mount iiserbgdrive:/ /home/me/cloud/gdriveiiserb --daemon
-	#rclone mount crypt:/ /home/me/cloud/crypt --daemon
-}
+include /etc/sway/config.d/*

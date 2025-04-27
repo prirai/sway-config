@@ -1,0 +1,63 @@
+set {
+    $wallpaper ../jv408avutto91.jpg
+    $lock_bg /home/$USER/.config/sway/lock.jpg
+    $mod Mod4
+    $term foot
+    $menu wofi -S drun
+    $files dolphin
+    $dash wldash
+    $emoji-sel wofimoji
+    $clipboard copyq show
+    $nm networkmanager_dmenu
+}
+
+bindsym {
+    $mod+Return exec $term
+    $mod+Shift+q kill
+    $mod+d exec $menu
+    $mod+e exec $files
+    $mod+Shift+d exec $dash
+    $mod+n exec $nm
+    $mod+Alt+c exec $clipboard
+    $mod+period exec $emoji-sel
+    $mod+Shift+c reload
+
+    Alt+Tab exec env RUST_BACKTRACE=1 \
+    swayr switch-window >> /tmp/swayr.log 2>&1
+
+    $mod+Tab exec env RUST_BACKTRACE=1 \
+    swayr next-window all-workspaces >> /tmp/swayr.log 2>&2
+
+    $mod+Shift+w exec env RUST_BACKTRACE=1 \
+    swayr switch-workspace-or-window >> /tmp/swayr.log 2>&1
+
+    $mod+c exec env RUST_BACKTRACE=1 \
+    swayr execute-swaymsg-command >> /tmp/swayr.log 2>&1
+
+    $mod+Shift+r exec env RUST_BACKTRACE=1 \
+    swayr execute-swayr-command >> /tmp/swayr.log 2>&1
+
+}
+
+exec {
+    '/home/$(whoami)/.config/sway/scripts/xdg-wlr'
+    wl-paste -t text --watch clipman store --no-persist
+    mako --config /home/me/.config/mako/config
+
+    polkit-dumb-agent
+    playerctld daemon
+    wmname LG3D
+    copyq
+    env RUST_BACKTRACE=1 RUST_LOG=swayr=debug swayrd > /tmp/swayrd.log 2>&1
+}
+
+exec_always {
+    autotiling-rs
+}
+
+floating_modifier $mod normal
+
+include {
+    /home/me/.config/sway/config.d/*.conf
+    scripts/*.conf
+}
