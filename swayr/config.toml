@@ -1,14 +1,14 @@
 [menu]
-executable = 'wofi'
+executable = 'rofi'
 args = [
-    '--show=dmenu',
-    '--allow-markup',
-    '--allow-images',
-    '--insensitive',
-    '--cache-file=/dev/null',
-    '--parse-search',
-    '--height=40%',
-    '--prompt={prompt}',
+    '-show=dmenu',
+    '-allow-markup',
+    '-allow-images',
+    '-insensitive',
+    '-cache-file=/dev/null',
+    '-parse-search',
+    '-height=40%',
+    '-prompt={prompt}',
 ]
 
 [format]

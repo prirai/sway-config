@@ -8,7 +8,7 @@
 * {
     all: unset;
     font-family: "Dank Mono", "Material Design Icons";
-    font-size: 18px;
+    font-size: 16px;
     min-height: 24px;
 }
 
@@ -81,6 +81,7 @@ window#waybar {
 #window {
     color: @blue;
     background: @surface;
+    min-width: 300px;
     font-weight: bold;
     border-radius: 8px;
     padding: 0 12px;
@@ -141,13 +142,13 @@ tooltip {
 #bluetooth.on {
     background: @blue;
     color: @surface;
-    box-shadow: 0 0 0 3px @blue;
+/*    box-shadow: 0 0 0 3px @blue;*/
 }
 
 #bluetooth.connected {
     background: @blue;
     color: @surface;
-    box-shadow: 0 0 0 3px @blue;
+/*    box-shadow: 0 0 0 3px @blue;*/
 }
 
 #network,

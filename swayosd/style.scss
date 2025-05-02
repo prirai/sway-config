@@ -1,0 +1,44 @@
+$theme_bg_color: #1a1a2e;
+
+window#osd {
+    padding: 12px 24px;
+    border-radius: 999px;
+    border: 1px solid rgba(#f8c537, 0.5);
+    background-color: $theme_bg_color;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    margin: 0 12px 12px 12px;
+
+    #container {
+        margin: 8px;
+    }
+
+    #icon {
+        color: #ffd95e;
+        font-size: 36px;
+        text-shadow: 0 3px 6px rgba(0, 0, 0, 0.8);
+    }
+
+    #text {
+        color: #ffd95e;
+        font-weight: bold;
+        font-size: 16px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    progressbar {
+        min-height: 8px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 6px 0;
+
+        trough {
+            background: rgba(248, 197, 55, 0.8);
+            border: none;
+        }
+
+        progress {
+            background: linear-gradient(to right, #ffd95e, #f8c537);
+            box-shadow: 0 3px 6px rgba(248, 197, 55, 0.8);
+        }
+    }
+}

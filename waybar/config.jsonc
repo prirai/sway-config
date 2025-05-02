@@ -7,7 +7,7 @@
 
   "modules-left": ["custom/launcher", "sway/workspaces", "custom/current-mode"],
 
-  "modules-center": ["sway/window"],
+  "modules-center": ["idle_inhibitor", "sway/window"],
 
   "modules-right": [
     "pulseaudio",
@@ -15,12 +15,22 @@
     "bluetooth",
     "cpu",
     "memory",
-    "temperature",
     "battery",
     "tray",
     "custom/power",
     "clock",
   ],
+
+"idle_inhibitor": {
+  "format": "{icon}",
+  "format-icons": {
+    "activated": "⏸️",
+    "deactivated": "▶️"
+  },
+  "tooltip": true,
+  "tooltip-format-activated": "Idle inhibitor is active (prevents screen lock)",
+  "tooltip-format-deactivated": "Idle inhibitor is off (permits screen lock)"
+},
 
   "sway/window": {
     "format": "{title}",
@@ -31,8 +41,8 @@
   },
 
   "custom/launcher": {
-    "format": " ",
-    "on-click": "wofi --show drun",
+    "format": "ॐ",
+    "on-click": "rofi -show drun",
     "tooltip": false,
   },
 
@@ -63,7 +73,7 @@
   },
 
   "cpu": {
-    "format": "C {usage}%",
+    "format": "⸎ {usage}%",
     "interval": 2,
     "states": {
       "critical": 90,
@@ -71,17 +81,11 @@
   },
 
   "memory": {
-    "format": "M {percentage}%",
+    "format": "⺷ {percentage}%",
     "interval": 2,
     "states": {
       "critical": 80,
     },
-  },
-
-  "temperature": {
-    "format": " {temperatureC}°C",
-    "critical-threshold": 80,
-    "interval": 5,
   },
 
   "battery": {
@@ -109,7 +113,7 @@
     "format-connected": " {device_alias}",
     "format-disabled": "",
     "interval": 5,
-    "on-click": "blueman-manager",
+    "on-click": "bluejay",
   },
 
   "pulseaudio": {

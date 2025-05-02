@@ -2,16 +2,16 @@
 
 folders=(
   alacritty
+  copyq
   fish
   mako
   nano
   networkmanager-dmenu
+  rofi
   swayosd
   sway
   swaylock
-  swayr
   waybar
-  wofi
 )
 
 for folder in "${folders[@]}"; do
