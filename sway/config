@@ -1,0 +1,70 @@
+font pango:dank mono regular 12
+seat seat0 xcursor_theme Bibata-Modern-Ice 24
+
+bar {
+	swaybar_command waybar
+	position top
+    hidden_state hide
+    mode hide
+    modifier Mod4
+}
+
+set {
+    $wallpaper ../s9uee41d5ece1.png
+    $lock_bg $HOME/.config/sway/smjx0oc21w0e1.png
+    $mod Mod4
+    $term alacritty
+    $files dolphin
+    $dash wldash
+    $emoji-sel rofi -modi "emoji:rofimoji" -show emoji
+    $clipboard copyq show
+    $menu rofi -show combi
+    $nm networkmanager_dmenu
+}
+
+bindsym {
+    $mod+Return exec $term
+    $mod+d exec $menu
+    $mod+e exec $files
+    $mod+n exec $nm
+    $mod+v exec $clipboard
+    Mod1+space exec alacritty --class "floatterm" -e bash -c 'fd . ~ -0 | fzf --read0 | xargs -r -0 xdg-open'
+    $mod+period exec $emoji-sel
+    $mod+Shift+d exec $dash
+    # $mod+Shift+e exec $HOME/.config/sway/exit_sway.sh
+    $mod+Shift+q kill
+    $mod+Shift+c reload
+	$mod+Tab exec echo show | tee /tmp/sovpipe
+}
+
+floating_modifier $mod normal
+
+exec {
+    '/home/$(whoami)/.config/sway/scripts/xdg-wlr'
+#    wl-paste -t text --watch clipman store --no-persist
+    mako --config $HOME/.config/mako/config
+
+	
+	kwalletd6
+	swayosd-server
+    polkit-dumb-agent
+    playerctld daemon
+    wmname LG3D
+    copyq
+    # env RUST_BACKTRACE=1 RUST_LOG=swayr=debug swayrd > /tmp/swayrd.log 2>&1
+	# env XDG_MENU_PREFIX=arch- kbuildsycoca6
+	rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov -t 50
+}
+
+exec_always {
+    autotiling-rs
+}
+
+exec --no-startup-id /usr/lib/pam_kwallet_init
+
+include {
+    config.d/*.conf
+    scripts/*.conf
+}
+
+include /etc/sway/config.d/*
