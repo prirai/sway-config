@@ -1,0 +1,9 @@
+font=iosevka nerd font regular 12
+background-color=#2E3440
+text-color=#ECEFF4
+border-size=2
+border-color=#3c3836
+border-radius=8
+icons=1
+text-alignment=left
+default-timeout=5000
