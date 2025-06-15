@@ -1,0 +1,84 @@
+#main {
+    border-radius: 10px;
+    background-color: #28281d44;
+}
+
+#base {
+    margin: 10px;
+}
+
+.fullscale {
+    height: 100%;
+    width: 100%;
+}
+
+.colflex {
+    display: flex;
+    flex-direction: column;
+}
+
+.rowflex {
+    display: flex;
+    flex-direction: row;
+}
+
+.workspace {
+    margin: 10px;
+    border-radius: 8px;
+    background-color: #282828ff;
+    border-width: 1px;
+    border-color: #504945ff;
+}
+
+.window {
+    width: 100px;
+    height: 80px;
+    background-color: #3c3836ff;
+    border-radius: 8px;
+    border-width: 1px;
+    border-color: #928374ff;
+}
+
+.window_active {
+    width: 100px;
+    height: 80px;
+    background-color: #504945ff;
+    border-radius: 8px;
+    border-width: 1px;
+    border-color: #d5c4a1ff;
+}
+
+.title {
+    width: 100%;
+    height: 21px;
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-bottom: 2px;
+    color: #ebdbb2ff;
+    font-size: 16px;
+    font-family: "Dank Mono:style=Bold:size=16";
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    margin-left: 4px;
+    margin-right: 4px;
+    color: #a89984ff;
+    vertical-align: top;
+    font-size: 14px;
+    font-family: "Dank Mono:style=Bold:size=14";
+    word-wrap: break-word;
+    line-height: 12px;
+}
+
+.number {
+    width: 20px;
+    height: 20px;
+    right: -14px;
+    top: -9px;
+    color: #fabd2fff;
+    font-size: 18px;
+    font-family: "Dank Mono:style=Bold:size=18";
+}
