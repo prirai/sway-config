@@ -1,0 +1,163 @@
+@define-color bg #1e1e2e;
+@define-color surface #313244;
+@define-color text #cdd6f4;
+@define-color blue #89b4fa;
+@define-color red #f38ba8;
+@define-color yellow #f9e2af;
+
+* {
+    all: unset;
+    font-family: "SF Pro Display", "Dank Mono", "Material Design Icons";
+    font-size: 16px;
+    min-height: 24px;
+}
+
+window#waybar {
+    background: rgba(30, 30, 46, 0.6);
+    border-bottom: 2px solid @surface;
+    transition: background-color 0.3s ease;
+}
+
+#workspaces button {
+    padding: 0 20px;
+    color: @text;
+    transition: all 0.3s ease;
+    min-width: 28px;
+    min-height: 28px;
+    border: none;
+    background: transparent;
+    font-weight: bold;
+    border-radius: 12px;
+}
+
+#workspaces button.focused {
+    color: @surface;
+    background: @blue;
+    border-radius: 12px;
+    padding: 0 8px;
+    min-width: 28px;
+    min-height: 28px;
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    color: @red;
+    animation: urgent-blink 1s infinite;
+}
+
+@keyframes focus-pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes urgent-blink {
+    0% {
+        color: @red;
+    }
+    50% {
+        color: @text;
+    }
+    100% {
+        color: @red;
+    }
+}
+
+.module {
+    margin: 0 6px;
+    padding: 0 5px;
+    border-radius: 8px;
+    /* background: @surface; */
+}
+
+#window {
+    color: @blue;
+    background: @surface;
+    min-width: 300px;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 0 12px;
+    margin: 4px 6px;
+}
+
+.module:hover {
+    background: shade(@surface, 1.2);
+}
+
+#clock {
+    color: @yellow;
+    font-weight: bold;
+}
+
+#battery {
+    font-size: 30px;
+    color: #a6e3a1;
+}
+
+#cpu.critical,
+#memory.critical,
+#temperature.critical {
+    color: @red;
+}
+
+#network {
+    color: @blue;
+    font-size: 30px;
+}
+
+#pulseaudio {
+    color: #f5c2e7;
+}
+
+#custom-power {
+    font-size: 30px;
+    color: @red;
+}
+
+tooltip {
+    background: @bg;
+    border: 2px solid @surface;
+    /* border-radius: 8px; */
+    padding: 8px;
+}
+
+#bluetooth {
+    color: @surface;
+    background: @red;
+    border-radius: 12px;
+    transition: background 0.3s;
+    font-weight: bold;
+    padding: 0 12px;
+}
+
+#bluetooth.on {
+    background: @blue;
+    color: @surface;
+/*    box-shadow: 0 0 0 3px @blue;*/
+}
+
+#bluetooth.connected {
+    background: @blue;
+    color: @surface;
+/*    box-shadow: 0 0 0 3px @blue;*/
+}
+
+#network,
+#bluetooth,
+#pulseaudio,
+#battery,
+#temperature,
+#custom-power,
+#clock {
+    font-size: 20px;
+    min-width: 32px;
+    /* text-align: center; */
+    padding: 0 6px;
+    /* line-height: 32px; */
+}
