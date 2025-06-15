@@ -27,7 +27,7 @@ You may also need to install image viewer and pdf viewer: feh/nomacs and zathura
 git clone git@github.com:prirai/sway-config.git
 ```
 
-This clones the repo, now you can manually copy and paste the folders you want to your config directory (usually `~/.config`).
+This clones the repo, now you can manually copy and paste the folders you want to your config directory (usually `~/.config`). Copy the `fonts` directory to `~/.local/share/fonts` and do `fc-cache -fv`.
 
 
 ## Issues (Not attached to this project)
