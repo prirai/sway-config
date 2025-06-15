@@ -1,0 +1,38 @@
+window#osd {
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(248, 197, 55, 0.5);
+  background-color: #1a1a2e;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  margin: 0 12px 12px 12px;
+}
+window#osd #container {
+  margin: 8px;
+}
+window#osd #icon {
+  color: #ffd95e;
+  font-size: 36px;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.8);
+}
+window#osd #text {
+  color: #ffd95e;
+  font-weight: bold;
+  font-size: 16px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+window#osd progressbar {
+  min-height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 6px 0;
+}
+window#osd progressbar trough {
+  background: rgba(248, 197, 55, 0.8);
+  border: none;
+}
+window#osd progressbar progress {
+  background: linear-gradient(to right, #ffd95e, #f8c537);
+  box-shadow: 0 3px 6px rgba(248, 197, 55, 0.8);
+}
+
+/*# sourceMappingURL=style.css.map */
