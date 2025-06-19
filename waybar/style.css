@@ -8,7 +8,7 @@
 * {
     all: unset;
     font-family: Vibur, "SF Pro Display", "Dank Mono", "Material Design Icons";
-    font-size: 20px;
+    font-size: 16px;
     min-height: 24px;
 }
 
@@ -19,10 +19,10 @@ window#waybar {
 }
 
 #workspaces button {
-    padding: 0 20px;
+    padding: 0 10px;
     color: @text;
     transition: all 0.3s ease;
-    min-width: 16px;
+    min-width: 12px;
     min-height: 28px;
     border: none;
     background: transparent;
@@ -34,7 +34,7 @@ window#waybar {
     color: @surface;
     background: @blue;
     border-radius: 12px;
-    min-width: 32px;
+    /*min-width: 22px;*/
     min-height: 28px;
     font-weight: bold;
 }
@@ -77,14 +77,14 @@ window#waybar {
 }
 
 #idle_inhibitor {
-    min-width: 30px;
+    min-width: 20px;
 }
 
 #window {
     color: @blue;
     background: @surface;
     font-family: Vibur, "Dank Mono";
-    min-width: 400px;
+    min-height: 300px;
     border-radius: 8px;
     border: 2px solid @blue;
     padding: 0 12px;
@@ -159,7 +159,8 @@ tooltip {
 #temperature,
 #custom-power,
 #clock {
+    min-height: 32px;
     font-size: 20px;
-    min-width: 32px;
-    padding: 0 6px;
+    min-width: 20px;
+    padding: 0px;
 }

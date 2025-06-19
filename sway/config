@@ -4,8 +4,6 @@ seat seat0 xcursor_theme Bibata-Modern-Ice 24
 bar {
 	swaybar_command waybar
 	position top
-    hidden_state hide
-    mode hide
     modifier Mod4
 }
 
