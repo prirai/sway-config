@@ -7,14 +7,14 @@
 
 * {
     all: unset;
-    font-family: "SF Pro Display", "Dank Mono", "Material Design Icons";
-    font-size: 16px;
+    font-family: Vibur, "SF Pro Display", "Dank Mono", "Material Design Icons";
+    font-size: 20px;
     min-height: 24px;
 }
 
 window#waybar {
-    background: rgba(30, 30, 46, 0.6);
-    border-bottom: 2px solid @surface;
+    background: transparent;
+    border-radius: 12px;
     transition: background-color 0.3s ease;
 }
 
@@ -22,7 +22,7 @@ window#waybar {
     padding: 0 20px;
     color: @text;
     transition: all 0.3s ease;
-    min-width: 28px;
+    min-width: 16px;
     min-height: 28px;
     border: none;
     background: transparent;
@@ -34,8 +34,7 @@ window#waybar {
     color: @surface;
     background: @blue;
     border-radius: 12px;
-    padding: 0 8px;
-    min-width: 28px;
+    min-width: 32px;
     min-height: 28px;
     font-weight: bold;
 }
@@ -70,24 +69,31 @@ window#waybar {
 }
 
 .module {
-    margin: 0 6px;
-    padding: 0 5px;
+    margin: 6px;
+    padding: 5px;
     border-radius: 8px;
-    /* background: @surface; */
+    border: 2px solid @blue;
+    background: @surface;
+}
+
+#idle_inhibitor {
+    min-width: 30px;
 }
 
 #window {
     color: @blue;
     background: @surface;
-    min-width: 300px;
-    font-weight: bold;
+    font-family: Vibur, "Dank Mono";
+    min-width: 400px;
     border-radius: 8px;
+    border: 2px solid @blue;
     padding: 0 12px;
     margin: 4px 6px;
 }
 
 .module:hover {
-    background: shade(@surface, 1.2);
+    background: @bg;
+    border-bottom: 1px solid @blue;
 }
 
 #clock {
@@ -107,7 +113,7 @@ window#waybar {
 }
 
 #network {
-    color: @blue;
+    color: #f5eb8a;
     font-size: 30px;
 }
 
@@ -128,8 +134,8 @@ tooltip {
 }
 
 #bluetooth {
-    color: @surface;
-    background: @red;
+    color: @red;
+    background: @surface;
     border-radius: 12px;
     transition: background 0.3s;
     font-weight: bold;
@@ -139,13 +145,11 @@ tooltip {
 #bluetooth.on {
     background: @blue;
     color: @surface;
-/*    box-shadow: 0 0 0 3px @blue;*/
 }
 
 #bluetooth.connected {
     background: @blue;
     color: @surface;
-/*    box-shadow: 0 0 0 3px @blue;*/
 }
 
 #network,
@@ -157,7 +161,5 @@ tooltip {
 #clock {
     font-size: 20px;
     min-width: 32px;
-    /* text-align: center; */
     padding: 0 6px;
-    /* line-height: 32px; */
 }

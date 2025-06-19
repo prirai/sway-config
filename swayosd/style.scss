@@ -1,10 +1,8 @@
-$theme_bg_color: #1a1a2e;
-
 window#osd {
     padding: 12px 24px;
-    border-radius: 999px;
+    border-radius: 12px;
     border: 1px solid rgba(#f8c537, 0.5);
-    background-color: $theme_bg_color;
+    background-color: #1a1a2e;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
     margin: 0 12px 12px 12px;
 
@@ -12,17 +10,14 @@ window#osd {
         margin: 8px;
     }
 
-    #icon {
+    image,
+    label {
         color: #ffd95e;
-        font-size: 36px;
-        text-shadow: 0 3px 6px rgba(0, 0, 0, 0.8);
     }
 
-    #text {
-        color: #ffd95e;
-        font-weight: bold;
-        font-size: 16px;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    progressbar:disabled,
+    image:disabled {
+        opacity: 0.5;
     }
 
     progressbar {
@@ -32,12 +27,12 @@ window#osd {
         margin: 6px 0;
 
         trough {
-            background: rgba(248, 197, 55, 0.8);
+            background: rgba(28, 22, 7, 0.8);
             border: none;
         }
 
         progress {
-            background: linear-gradient(to right, #ffd95e, #f8c537);
+            background: linear-gradient(to right, #ffa45e, #dffe6e);
             box-shadow: 0 3px 6px rgba(248, 197, 55, 0.8);
         }
     }

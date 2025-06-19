@@ -1,3 +1,4 @@
 *.lock
 *.dat
 fish_variables
+.idea

@@ -1,7 +1,9 @@
 {
   "layer": "top",
+  "position": "top",
   "spacing": 0,
   "height": 32,
+  "margin": 10,
   "gtk-layer-shell": true,
   "ipc": true,
 
@@ -18,14 +20,14 @@
     "battery",
     "tray",
     "custom/power",
-    "clock",
+    "clock"
   ],
 
 "idle_inhibitor": {
   "format": "{icon}",
   "format-icons": {
-    "activated": "⏸️",
-    "deactivated": "▶️"
+    "activated": "\uF023",
+    "deactivated": "\uF3C1"
   },
   "tooltip": true,
   "tooltip-format-activated": "Idle inhibitor is active (prevents screen lock)",
@@ -37,13 +39,13 @@
     "max-length": 50,
     "tooltip": true,
     "tooltip-format": "{app_id}",
-    "on-click-middle": "swaymsg kill",
+    "on-click-middle": "swaymsg kill"
   },
 
   "custom/launcher": {
-    "format": "ॐ",
+    "format": "\uF568",
     "on-click": "rofi -show drun",
-    "tooltip": false,
+    "tooltip": false
   },
 
   "sway/workspaces": {
@@ -54,15 +56,15 @@
       "2": [],
       "3": [],
       "4": [],
-      "5": [],
-    },
+      "5": []
+    }
   },
 
   "custom/current-mode": {
     "exec": "swaymsg -t get_mode | jq -r .mode",
     "interval": 1,
     "format": "{}",
-    "tooltip": false,
+    "tooltip": false
   },
 
   "clock": {
@@ -73,19 +75,19 @@
   },
 
   "cpu": {
-    "format": "⸎ {usage}%",
+    "format": " {usage}%",
     "interval": 2,
     "states": {
-      "critical": 90,
-    },
+      "critical": 90
+    }
   },
 
   "memory": {
-    "format": "⺷ {percentage}%",
+    "format": " {percentage}%",
     "interval": 2,
     "states": {
-      "critical": 80,
-    },
+      "critical": 80
+    }
   },
 
   "battery": {
@@ -93,10 +95,10 @@
     "format-icons": ["", "", "", "", ""],
     "states": {
       "warning": 30,
-      "critical": 15,
+      "critical": 15
     },
     "interval": 5,
-    "tooltip-format": "{capacity}%",
+    "tooltip-format": "{capacity}%"
   },
 
   "network": {
@@ -105,7 +107,7 @@
     "format-disconnected": "󰖪",
     "interval": 5,
     "tooltip-format": "📡 {ifname} | {essid} ({signalStrength}%)\n⬇ {bandwidthDownBits} ⬆ {bandwidthUpBits}",
-    "on-click": "alacritty -e nmtui",
+    "on-click": "alacritty -e nmtui"
   },
 
   "bluetooth": {
@@ -113,7 +115,7 @@
     "format-connected": " {device_alias}",
     "format-disabled": "",
     "interval": 5,
-    "on-click": "bluejay",
+    "on-click": "bluejay"
   },
 
   "pulseaudio": {
@@ -127,16 +129,15 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["󰕿", "󰖀", "󰕾"],
+      "default": ["󰕿", "󰖀", "󰕾"]
     },
-    "on-click": "pavucontrol",
-    "scroll-step": 2,
+    "on-click": "pavucontrol-qt",
+    "scroll-step": 2
   },
 
-  // Power menu integration
   "custom/power": {
     "format": "⏻",
-    "on-click": "wlogout -b 1 -c 0 -r 0 -m 0 --protocol layer-shell",
-    "tooltip": false,
-  },
+    "on-click": "wlogout --protocol layer-shell",
+    "tooltip": false
+  }
 }
