@@ -57,7 +57,7 @@
     margin-bottom: 2px;
     color: #ebdbb2ff;
     font-size: 24px;
-    font-family: "Vibur:style=Medium:size=24";
+    font-family: "SFMono Nerd Font:style=Medium:size=24";
 }
 
 .content {
@@ -68,7 +68,7 @@
     color: #a89984ff;
     vertical-align: top;
     font-size: 14px;
-    font-family: "Vibur:style=Medium:size=12";
+    font-family: "SFMono Nerd Font:style=Medium:size=12";
     word-wrap: break-word;
     line-height: 12px;
 }
@@ -80,5 +80,5 @@
     top: -9px;
     color: #fabd2fff;
     font-size: 18px;
-    font-family: "Vibur:style=Medium:size=24";
+    font-family: "SFMono Nerd Font:style=Medium:size=24";
 }

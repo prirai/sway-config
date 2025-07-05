@@ -1,14 +1,14 @@
-@define-color bg #1e1e2e;
-@define-color surface #313244;
-@define-color text #cdd6f4;
-@define-color blue #89b4fa;
-@define-color red #f38ba8;
-@define-color yellow #f9e2af;
+@define-color bg #1a1a1a;
+@define-color surface #222222;
+@define-color text #e0e0e0;
+@define-color accent #007acc;
+@define-color secondary_accent #66ccff;
+@define-color tertiary_accent #9966cc;
 
 * {
     all: unset;
-    font-family: Vibur, "SF Pro Display", "Dank Mono", "Material Design Icons";
-    font-size: 20px;
+    font-family: "SFMono Nerd Font", "Iosevka Custom Extended", "SF Pro Display", "Dank Mono", "Material Design Icons";
+    font-size: 16px;
     min-height: 24px;
 }
 
@@ -32,7 +32,7 @@ window#waybar {
 
 #workspaces button.focused {
     color: @surface;
-    background: @blue;
+    background: @accent;
     border-radius: 12px;
     min-width: 32px;
     min-height: 28px;
@@ -40,7 +40,7 @@ window#waybar {
 }
 
 #workspaces button.urgent {
-    color: @red;
+    color: @accent;
     animation: urgent-blink 1s infinite;
 }
 
@@ -58,13 +58,13 @@ window#waybar {
 
 @keyframes urgent-blink {
     0% {
-        color: @red;
+        color: @accent;
     }
     50% {
         color: @text;
     }
     100% {
-        color: @red;
+        color: @accent;
     }
 }
 
@@ -72,7 +72,7 @@ window#waybar {
     margin: 6px;
     padding: 5px;
     border-radius: 8px;
-    border: 2px solid @blue;
+    border: 2px solid @accent;
     background: @surface;
 }
 
@@ -81,49 +81,49 @@ window#waybar {
 }
 
 #window {
-    color: @blue;
+    color: #ffffff;
     background: @surface;
-    font-family: Vibur, "Dank Mono";
+    font-weight: bold;
     min-width: 400px;
     border-radius: 8px;
-    border: 2px solid @blue;
+    border: 2px solid @accent;
     padding: 0 12px;
     margin: 4px 6px;
 }
 
 .module:hover {
     background: @bg;
-    border-bottom: 1px solid @blue;
+    border-bottom: 1px solid @accent;
 }
 
 #clock {
-    color: @yellow;
+    color: @secondary_accent;
     font-weight: bold;
 }
 
 #battery {
     font-size: 30px;
-    color: #a6e3a1;
+    color: @secondary_accent;
 }
 
 #cpu.critical,
 #memory.critical,
 #temperature.critical {
-    color: @red;
+    color: @accent;
 }
 
 #network {
-    color: #f5eb8a;
+    color: @secondary_accent;
     font-size: 30px;
 }
 
 #pulseaudio {
-    color: #f5c2e7;
+    color: @tertiary_accent;
 }
 
 #custom-power {
     font-size: 30px;
-    color: @red;
+    color: @accent;
 }
 
 tooltip {
@@ -134,7 +134,7 @@ tooltip {
 }
 
 #bluetooth {
-    color: @red;
+    color: @accent;
     background: @surface;
     border-radius: 12px;
     transition: background 0.3s;
@@ -143,12 +143,12 @@ tooltip {
 }
 
 #bluetooth.on {
-    background: @blue;
+    background: @accent;
     color: @surface;
 }
 
 #bluetooth.connected {
-    background: @blue;
+    background: @accent;
     color: @surface;
 }
 

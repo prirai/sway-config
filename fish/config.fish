@@ -17,6 +17,9 @@ function fish_greeting
     echo
     echo (set_color -i bryellow ; fortune; set_color normal)
 	echo
+	echo "To-Dos:"
+	cat /home/$USER/todo
+	echo
 end
 
 

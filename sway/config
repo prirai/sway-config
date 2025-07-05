@@ -17,7 +17,8 @@ set {
     $files dolphin
     $dash wldash
     $emoji-sel rofi -modi "emoji:rofimoji" -show emoji
-    $clipboard copyq show
+    # $clipboard rofi -modi clipboard:/home/priyanshu/.config/sway/scripts/cliphist-rofi-img -show clipboard -show-icons
+    $clipboard rofi-cliphist
     $menu rofi -show combi
     $nm networkmanager_dmenu
 }
@@ -35,6 +36,7 @@ bindsym {
     $mod+Shift+q kill
     $mod+Shift+c reload
 	$mod+Tab exec echo show | tee /tmp/sovpipe
+	Mod1+Tab exec swayr switch-to-urgent-or-lru-window
 }
 
 floating_modifier $mod normal
@@ -44,14 +46,14 @@ exec {
 #    wl-paste -t text --watch clipman store --no-persist
     mako --config $HOME/.config/mako/config
 
-	
+	wl-paste --watch cliphist store
 	kwalletd6
 	swayosd-server
     polkit-dumb-agent
     playerctld daemon
     wmname LG3D
-    copyq
-    # env RUST_BACKTRACE=1 RUST_LOG=swayr=debug swayrd > /tmp/swayrd.log 2>&1
+    # copyq
+    env RUST_BACKTRACE=1 RUST_LOG=swayr=debug swayrd > /tmp/swayrd.log 2>&1
 	# env XDG_MENU_PREFIX=arch- kbuildsycoca6
 	rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov -t 50
 }

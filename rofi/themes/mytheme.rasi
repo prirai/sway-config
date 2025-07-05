@@ -1,16 +1,14 @@
-/* MACOS SPOTLIGHT LIKE DARK THEME FOR ROFI  */
-/* Author: Newman Sanchez (https://github.com/newmanls) */
-
 * {
-    font:   "Montserrat 12";
+    font:   "SFMono Nerd Font 12";
 
-    bg0:    #242424E6;
-    bg1:    #7E7E7E80;
-    bg2:    #0860f2E6;
+    bg0:    transparent;     /* Waybar @bg */
+    blue:   #007acc;       /* Waybar @blue */
+    bg1:    #1a1a1a;     /* Waybar @surface with alpha */
+    bg2:    #007accE6;     /* Waybar @blue with alpha */
 
-    fg0:    #DEDEDE;
-    fg1:    #FFFFFF;
-    fg2:    #DEDEDE80;
+    fg0:    #e0e0e0;       /* Waybar @text */
+    fg1:    #e0e0e0;       /* White for contrast */
+    fg2:    #e0e0e080;     /* Waybar @text with alpha */
 
     background-color:   transparent;
     text-color:         @fg0;
@@ -24,21 +22,27 @@ window {
     background-color:   @bg0;
 
     location:       center;
-    width:          640;
-    border-radius:  8;
+    width:          800;
+    border-radius:  12;     /* Match Waybar's border-radius */
 }
 
 inputbar {
-    font:       "Montserrat 20";
+    font:       "Vibur 20";
+    color:     @fg1;
     padding:    12px;
     spacing:    12px;
     children:   [ icon-search, entry ];
+    background-color:   @bg1;
+    border:             2px;
+    border-color:       @bg2;
+    border-radius:      12px;
 }
 
 icon-search {
     expand:     false;
     filename:   "search";
     size: 28px;
+    color:      @fg2;
 }
 
 icon-search, entry, element-icon, element-text {
@@ -63,31 +67,38 @@ textbox {
 }
 
 listview {
-    lines:      10;
+    lines:      15;
     columns:    1;
 
+    background-color:   #1a1a1a80; /* Waybar @surface */
     fixed-height:   false;
-    border:         1px 0 0;
+    border:         2px;
     border-color:   @bg1;
+    border-radius:  12 12;
+    margin:         10;
+    padding:        10;
 }
 
 element {
     padding:            8px 16px;
     spacing:            16px;
-    background-color:   transparent;
+    background-color:   @bg1;
+    border:             2px;
+    border-radius:      12px;
+    margin:             4px;
 }
 
 element normal active {
-    text-color: @bg2;
+    text-color: @blue;
 }
 
 element alternate active {
-    text-color: @bg2;
+    text-color: @blue;
 }
 
 element selected normal, element selected active {
-    background-color:   @bg2;
-    text-color:         @fg1;
+    border-color:   @bg2;
+    text-color:         @blue;
 }
 
 element-icon {
